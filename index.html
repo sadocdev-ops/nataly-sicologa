@@ -174,20 +174,23 @@
       position: relative;
     }
 
-    .profile-photo-container {
-      width: 180px;
-      height: 180px;
+    /* Espacio en blanco reservado para la foto con icono */
+    .profile-placeholder-container {
+      width: 170px;
+      height: 170px;
       margin: 0 auto 20px;
       border-radius: 50%;
-      border: 4px solid var(--sage-light);
-      overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      background-color: var(--sage-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px dashed var(--sage-primary);
     }
 
-    .profile-photo-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .profile-placeholder-container i {
+      font-size: 65px;
+      color: var(--sage-primary);
+      opacity: 0.8;
     }
 
     .signature-style {
@@ -458,11 +461,10 @@
       <p class="hero-subtitle">Te acompaño a encontrar claridad, herramientas y equilibrio integral en tu proceso personal.</p>
     </div>
 
-    <!-- Fotografía fija de la profesional -->
+    <!-- Tarjeta con espacio reservado para foto -->
     <div class="hero-profile-card">
-      <div class="profile-photo-container">
-        <!-- Reemplaza la URL de abajo por el archivo de imagen de la Psicóloga -->
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Ps. Nataly Beatriz Alvarado Oyarzún">
+      <div class="profile-placeholder-container">
+        <i class="fas fa-user-doctor"></i>
       </div>
 
       <h3 style="font-size: 1.3rem; color: var(--sage-dark);">Nataly Beatriz Alvarado Oyarzún</h3>
