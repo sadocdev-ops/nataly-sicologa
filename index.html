@@ -34,29 +34,37 @@
       line-height: 1.6;
     }
 
-    /* Floating WhatsApp Button */
-    .sticky-whatsapp {
+    /* Floating WhatsApp & Email Sticky Buttons */
+    .sticky-contact {
       position: fixed;
       bottom: 25px;
       right: 25px;
-      width: 60px;
-      height: 60px;
-      background-color: var(--whatsapp-green);
-      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 1000;
+    }
+
+    .sticky-btn {
+      width: 55px;
+      height: 55px;
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 30px;
-      box-shadow: 0 4px 18px rgba(37, 211, 102, 0.4);
-      z-index: 1000;
+      color: white;
+      font-size: 26px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.15);
       transition: transform 0.3s ease;
       text-decoration: none;
     }
 
-    .sticky-whatsapp:hover {
+    .sticky-btn:hover {
       transform: scale(1.1);
     }
+
+    .btn-ws { background-color: var(--whatsapp-green); }
+    .btn-gm { background-color: var(--primary); }
 
     /* Header & Navbar */
     header {
@@ -181,14 +189,13 @@
       box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     }
 
-    .btn-outline {
-      background-color: transparent;
-      color: var(--primary);
-      border: 2px solid var(--primary);
+    .btn-email {
+      background-color: var(--primary);
+      color: white;
     }
 
-    .btn-outline:hover {
-      background-color: var(--primary-light);
+    .btn-email:hover {
+      background-color: var(--primary-hover);
     }
 
     .hero-card-img {
@@ -220,7 +227,7 @@
       margin-top: 10px;
     }
 
-    /* Services / Modalidades */
+    /* Modalidades */
     .modalities {
       padding: 70px 20px;
       background-color: white;
@@ -281,7 +288,7 @@
       font-size: 0.95rem;
     }
 
-    /* Specialty Area */
+    /* Especialidades */
     .specialties {
       padding: 80px 20px;
     }
@@ -357,6 +364,12 @@
       font-size: 20px;
     }
 
+    .info-card a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
     .form-card {
       background-color: var(--bg-color);
       padding: 35px;
@@ -384,6 +397,12 @@
       background-color: white;
     }
 
+    .form-actions {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+    }
+
     /* Footer */
     footer {
       text-align: center;
@@ -403,10 +422,15 @@
 </head>
 <body>
 
-  <!-- Floating Sticky WhatsApp -->
-  <a href="https://wa.me/56961216747?text=Hola%20Ps.%20Nataly,%20me%20gustaría%20solicitar%20información%20o%20agendar%20una%20sesión." class="sticky-whatsapp" target="_blank" title="Agendar por WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <!-- Floating Sticky Buttons (WhatsApp & Gmail) -->
+  <div class="sticky-contact">
+    <a href="https://wa.me/56961216747?text=Hola%20Ps.%20Nataly,%20me%20gustaría%20solicitar%20información%20o%20agendar%20una%20sesión." class="sticky-btn btn-ws" target="_blank" title="Contactar por WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="mailto:Nataly.cfc@gmail.com?subject=Consulta%20Psicol%C3%B3gica%20-%20Ps.%20Nataly%20Alvarado" class="sticky-btn btn-gm" title="Enviar Correo">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
 
   <!-- Header -->
   <header>
@@ -436,8 +460,8 @@
         <a href="https://wa.me/56961216747?text=Hola%20Ps.%20Nataly,%20me%20gustaría%20agendar%20una%20consulta." class="btn btn-whatsapp" target="_blank">
           <i class="fab fa-whatsapp"></i> Agendar por WhatsApp
         </a>
-        <a href="#contacto" class="btn btn-outline">
-          <i class="far fa-calendar-check"></i> Consultar Disponibilidad
+        <a href="mailto:Nataly.cfc@gmail.com?subject=Consulta%20Psicol%C3%B3gica" class="btn btn-email">
+          <i class="fas fa-envelope"></i> Enviar Correo
         </a>
       </div>
     </div>
@@ -476,7 +500,7 @@
     </div>
   </section>
 
-  <!-- Especialidades / Enfoque -->
+  <!-- Especialidades -->
   <section class="specialties" id="especialidades">
     <div class="container">
       <div class="section-title">
@@ -532,7 +556,15 @@
             <i class="fab fa-whatsapp"></i>
             <div>
               <h4 style="font-size: 0.9rem; color: var(--text-muted);">WhatsApp Directo</h4>
-              <p style="font-weight: 600; font-size: 1.1rem;">+56 9 6121 6747</p>
+              <a href="https://wa.me/56961216747" target="_blank">+56 9 6121 6747</a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4 style="font-size: 0.9rem; color: var(--text-muted);">Correo Electrónico</h4>
+              <a href="mailto:Nataly.cfc@gmail.com">Nataly.cfc@gmail.com</a>
             </div>
           </div>
 
@@ -540,7 +572,7 @@
             <i class="fas fa-map-marker-alt"></i>
             <div>
               <h4 style="font-size: 0.9rem; color: var(--text-muted);">Ubicación Presencial</h4>
-              <p style="font-weight: 600; font-size: 1.1rem;">Castro, Chiloé</p>
+              <p style="font-weight: 600;">Castro, Chiloé</p>
             </div>
           </div>
         </div>
@@ -563,9 +595,14 @@
               <label for="mensaje">Consulta o Motivo</label>
               <textarea id="mensaje" rows="4" placeholder="Breve descripción de lo que deseas consultar..." required></textarea>
             </div>
-            <button type="button" class="btn btn-whatsapp" style="width: 100%; justify-content: center;" onclick="sendWhatsApp()">
-              <i class="fab fa-whatsapp"></i> Contactar vía WhatsApp
-            </button>
+            <div class="form-actions">
+              <button type="button" class="btn btn-whatsapp" style="width: 100%; justify-content: center;" onclick="sendWhatsApp()">
+                <i class="fab fa-whatsapp"></i> Contactar vía WhatsApp
+              </button>
+              <button type="button" class="btn btn-email" style="width: 100%; justify-content: center;" onclick="sendEmail()">
+                <i class="fas fa-envelope"></i> Contactar vía Correo
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -591,6 +628,21 @@
       const text = `Hola Ps. Nataly Alvarado, mi nombre es ${nombre}. Me interesa agendar en la modalidad: ${modalidad}. Detalle: ${mensaje}`;
       const encodedText = encodeURIComponent(text);
       window.open(`https://wa.me/56961216747?text=${encodedText}`, '_blank');
+    }
+
+    function sendEmail() {
+      const nombre = document.getElementById('nombre').value;
+      const modalidad = document.getElementById('modalidad').value;
+      const mensaje = document.getElementById('mensaje').value;
+
+      if(!nombre || !mensaje) {
+        alert('Por favor, completa los campos obligatorios.');
+        return;
+      }
+
+      const subject = encodeURIComponent(`Consulta Psicológica - ${nombre}`);
+      const body = encodeURIComponent(`Hola Ps. Nataly Alvarado,\n\nMi nombre es: ${nombre}\nModalidad de preferencia: ${modalidad}\n\nConsulta:\n${mensaje}`);
+      window.location.href = `mailto:Nataly.cfc@gmail.com?subject=${subject}&body=${body}`;
     }
   </script>
 </body>
