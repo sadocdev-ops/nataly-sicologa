@@ -174,51 +174,20 @@
       position: relative;
     }
 
-    .upload-zone {
-      width: 190px;
-      height: 190px;
+    .profile-photo-container {
+      width: 180px;
+      height: 180px;
       margin: 0 auto 20px;
       border-radius: 50%;
-      border: 2px dashed var(--sage-primary);
-      background-color: var(--sage-light);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
+      border: 4px solid var(--sage-light);
       overflow: hidden;
-      position: relative;
-      transition: all 0.3s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
     }
 
-    .upload-zone:hover {
-      border-color: var(--sage-dark);
-      background-color: #DFE8E3;
-    }
-
-    .upload-zone img {
+    .profile-photo-container img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: none;
-    }
-
-    .upload-zone i {
-      font-size: 32px;
-      color: var(--sage-primary);
-      margin-bottom: 8px;
-    }
-
-    .upload-zone span {
-      font-size: 0.75rem;
-      color: var(--sage-dark);
-      font-weight: 600;
-      text-align: center;
-      padding: 0 10px;
-    }
-
-    #fileInput {
-      display: none;
     }
 
     .signature-style {
@@ -489,16 +458,12 @@
       <p class="hero-subtitle">Te acompaño a encontrar claridad, herramientas y equilibrio integral en tu proceso personal.</p>
     </div>
 
-    <!-- Container interactivo para cargar la foto de Nataly -->
+    <!-- Fotografía fija de la profesional -->
     <div class="hero-profile-card">
-      <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
-        <div id="uploadPlaceholder" style="text-align: center;">
-          <i class="fas fa-camera"></i><br>
-          <span>Haz clic para subir foto</span>
-        </div>
-        <img id="profileImage" alt="Foto Psicóloga">
+      <div class="profile-photo-container">
+        <!-- Reemplaza la URL de abajo por el archivo de imagen de la Psicóloga -->
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Ps. Nataly Beatriz Alvarado Oyarzún">
       </div>
-      <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)">
 
       <h3 style="font-size: 1.3rem; color: var(--sage-dark);">Nataly Beatriz Alvarado Oyarzún</h3>
       <p style="color: var(--text-muted); font-size: 0.9rem; font-weight: 500;">Psicóloga Clínica</p>
@@ -645,19 +610,6 @@
   </footer>
 
   <script>
-    function previewImage(event) {
-      const reader = new FileReader();
-      reader.onload = function() {
-        const output = document.getElementById('profileImage');
-        output.src = reader.result;
-        output.style.display = 'block';
-        document.getElementById('uploadPlaceholder').style.display = 'none';
-      };
-      if (event.target.files[0]) {
-        reader.readAsDataURL(event.target.files[0]);
-      }
-    }
-
     function sendWhatsApp() {
       const nombre = document.getElementById('nombre').value;
       const modalidad = document.getElementById('modalidad').value;
